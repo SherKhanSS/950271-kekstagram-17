@@ -36,16 +36,14 @@ var photoСards = [];
 
 var photoСardsList = document.querySelector('.pictures');
 
-var pictureTemplate = document.querySelector('#picture');
-
 var renderPhotoСard = function (photoСard) {
-  var photoСard = pictureTemplate.cloneNode(true);
+  var tpl = document.querySelector('#picture').content.querySelector('.picture').cloneNode(true);
 
-  photoСard.querySelector('.picture__img').src = photoСard.url;
-  photoСard.querySelector('.picture__likes').textContent = photoСard.likes;
-  photoСard.querySelector('.picture__comments').textContent = photoСard.comments.length;
+  tpl.querySelector('.picture__img').src = photoСard.url;
+  tpl.querySelector('.picture__likes').textContent = photoСard.likes;
+  tpl.querySelector('.picture__comments').textContent = photoСard.comments.length;
 
-  return photoСard;
+  return tpl;
 }
 
 var fragment = document.createDocumentFragment();
