@@ -145,9 +145,56 @@ buttonBigger.addEventListener('click', function() {
 });
 
 
-// var imgNone = imgUpload.querySelector('.effects__preview--none');
-// var imgChrome = imgUpload.querySelector('.effects__preview--chrome');
-// var imgSepia = imgUpload.querySelector('.effects__preview--sepia');
-// var imgMarvin = imgUpload.querySelector('.effects__preview--marvin');
-// var imgPhobos = imgUpload.querySelector('.effects__preview--phobos');
-// var imgHeat = imgUpload.querySelector('.effects__preview--heat');
+var imgNone = imgUpload.querySelector('.effects__preview--none');
+var imgChrome = imgUpload.querySelector('.effects__preview--chrome');
+var imgSepia = imgUpload.querySelector('.effects__preview--sepia');
+var imgMarvin = imgUpload.querySelector('.effects__preview--marvin');
+var imgPhobos = imgUpload.querySelector('.effects__preview--phobos');
+var imgHeat = imgUpload.querySelector('.effects__preview--heat');
+var effectLevel = imgUpload.querySelector('.effect-level');
+// var effectLevelPin = imgUpload.querySelector('.effect-level__pin');
+//
+// effectLevelPin.addEventListener('mouseup', function() {
+// });
+
+imgNone.addEventListener('click', function() {
+  imgPreview.classList.remove('effects__preview--chrome', 'effects__preview--sepia', 'effects__preview--marvin', 'effects__preview--phobos', 'effects__preview--heat');
+  imgPreview.classList.add('effects__preview--none');
+  effectLevel.classList.add('hidden');
+  imgPreview.style.filter = "none";
+});
+
+imgChrome.addEventListener('click', function() {
+  imgPreview.classList.remove('effects__preview--none', 'effects__preview--sepia', 'effects__preview--marvin', 'effects__preview--phobos', 'effects__preview--heat');
+  imgPreview.classList.add('effects__preview--chrome');
+  effectLevel.classList.remove('hidden');
+  imgPreview.style.filter = "grayscale(1)";
+});
+
+imgSepia.addEventListener('click', function() {
+  imgPreview.classList.remove('effects__preview--none', 'effects__preview--chrome', 'effects__preview--marvin', 'effects__preview--phobos', 'effects__preview--heat');
+  imgPreview.classList.add('effects__preview--sepia');
+  effectLevel.classList.remove('hidden');
+  imgPreview.style.filter = "sepia(1)";
+});
+
+imgMarvin.addEventListener('click', function() {
+  imgPreview.classList.remove('effects__preview--none', 'effects__preview--chrome', 'effects__preview--sepia', 'effects__preview--phobos', 'effects__preview--heat');
+  imgPreview.classList.add('effects__preview--marvin');
+  effectLevel.classList.remove('hidden');
+  imgPreview.style.filter = "invert(100%)";
+});
+
+imgPhobos.addEventListener('click', function() {
+  imgPreview.classList.remove('effects__preview--none', 'effects__preview--chrome', 'effects__preview--sepia', 'effects__preview--marvin', 'effects__preview--heat');
+  imgPreview.classList.add('effects__preview--phobos');
+  effectLevel.classList.remove('hidden');
+  imgPreview.style.filter = "blur(3px)";
+});
+
+imgHeat.addEventListener('click', function() {
+  imgPreview.classList.remove('effects__preview--none', 'effects__preview--chrome', 'effects__preview--sepia', 'effects__preview--marvin', 'effects__preview--phobos');
+  imgPreview.classList.add('effects__preview--heat');
+  effectLevel.classList.remove('hidden');
+  imgPreview.style.filter = "brightness(3)";
+});
