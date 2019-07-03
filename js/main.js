@@ -84,7 +84,6 @@ buttonCancel.addEventListener('click', function() {
   closeImgUpload();
 });
 
-
 var buttonSmaller = imgUpload.querySelector('.scale__control--smaller');
 var buttonBigger = imgUpload.querySelector('.scale__control--bigger');
 var inputScale = imgUpload.querySelector('.scale__control--value');
@@ -144,7 +143,6 @@ buttonBigger.addEventListener('click', function() {
     }
 });
 
-
 var imgNone = imgUpload.querySelector('.effects__preview--none');
 var imgChrome = imgUpload.querySelector('.effects__preview--chrome');
 var imgSepia = imgUpload.querySelector('.effects__preview--sepia');
@@ -152,10 +150,6 @@ var imgMarvin = imgUpload.querySelector('.effects__preview--marvin');
 var imgPhobos = imgUpload.querySelector('.effects__preview--phobos');
 var imgHeat = imgUpload.querySelector('.effects__preview--heat');
 var effectLevel = imgUpload.querySelector('.effect-level');
-// var effectLevelPin = imgUpload.querySelector('.effect-level__pin');
-//
-// effectLevelPin.addEventListener('mouseup', function() {
-// });
 
 imgNone.addEventListener('click', function() {
   imgPreview.classList.remove('effects__preview--chrome', 'effects__preview--sepia', 'effects__preview--marvin', 'effects__preview--phobos', 'effects__preview--heat');
