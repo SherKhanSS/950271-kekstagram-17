@@ -1,24 +1,40 @@
 'use strict';
+
 (function () {
+  var NEW_PHOTOS_QUANTITY = 10;
 
-var photoСardsList = document.querySelector('.pictures');
+  var photos = [];
+  var discussedPhotos = [];
+  var newPhotos = [];
 
-var renderPhotoСard = function (photoСard) {
-  var tpl = document.querySelector('#picture').content.querySelector('.picture').cloneNode(true);
-
-  tpl.querySelector('.picture__img').src = photoСard.url;
-  tpl.querySelector('.picture__likes').textContent = photoСard.likes;
-  tpl.querySelector('.picture__comments').textContent = photoСard.comments.length;
-
-  return tpl;
-}
-
-window.load(function (photoСards) {
-  var fragment = document.createDocumentFragment();
-    for (var i = 0; i < photoСards.length; i++) {
-      fragment.appendChild(renderPhotoСard(photoСards[i]));
+  var getNew = function () {
+    if (!newPhotos.length) {
+      newPhotos = window.util.shuffleArray(photos).slice(0, NEW_PHOTOS_QUANTITY);
     }
-  photoСardsList.appendChild(fragment);
- });
+    return newPhotos;
+  };
 
+  var getDiscussed = function () {
+    if (!discussedPhotos.length) {
+      discussedPhotos = photos.slice().sort(function (a, b) {
+        return b.comments.length - a.comments.length;
+      });
+    }
+    return discussedPhotos;
+  };
+
+  var getPopular = function () {
+    return photos;
+  };
+
+  var setData = function (data) {
+    photos = data;
+  };
+
+  window.data = {
+    getNew: getNew,
+    getDiscussed: getDiscussed,
+    getPopular: getPopular,
+    set: setData
+  };
 })();
